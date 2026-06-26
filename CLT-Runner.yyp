@@ -37,6 +37,8 @@
   },
   "name":"CLT-Runner",
   "resources":[
+    {"id":{"name":"obj_clt","path":"objects/obj_clt/obj_clt.yy",},},
+    {"id":{"name":"obj_coletavel","path":"objects/obj_coletavel/obj_coletavel.yy",},},
     {"id":{"name":"obj_controlador_historia","path":"objects/obj_controlador_historia/obj_controlador_historia.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"rm_historia","path":"rooms/rm_historia/rm_historia.yy",},},
