@@ -10,3 +10,7 @@ tempo_vel_v = 60 * 5;
 
 // Inicia o alarme do tempo do jogo
 alarm[1] = 5;
+
+// Para a musica se já estiver tocando e taca a musica
+audio_stop_sound(snd_musica);
+audio_play_sound(snd_musica, 1, true);

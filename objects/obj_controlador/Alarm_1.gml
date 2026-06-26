@@ -1,3 +1,6 @@
+// Só reseta o alarme para criar mais instancias se a velocidade da room é maior do que 0
+if (layer_get_vspeed("Background") == 0) exit;
+
 // Aumenta a velocidade do jogo com um limite
 if (global.layer_vel_v < 10)
 {

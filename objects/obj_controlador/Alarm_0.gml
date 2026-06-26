@@ -1,3 +1,6 @@
+// Só reseta o alarme para criar mais instancias se a velocidade da room é maior do que 0
+if (layer_get_vspeed("Background") == 0) exit;
+
 // Variáveis para controla a posição do spawn
 var _x = 32; // Já spawn por partão do lado esquerdo da tela
 var _y = -32;
