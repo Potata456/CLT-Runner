@@ -1,6 +1,5 @@
 // Faz o objeto ir para baixo
-vel_y= 1;
-vspeed = vel_y;
+vel_y= layer_get_vspeed("Background");
 
 // Variável para a troca de imagens
 ima_atual = 0;

@@ -20,3 +20,7 @@ draw_text(_x, _y, global.pontos);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(-1);
+
+// Debug para testa a aceleração do jogo e a diminuição do tempo de spawn
+//draw_text(35, 10, tempo_spawn);
+//draw_text(35, 30, global.layer_vel_v);

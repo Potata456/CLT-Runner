@@ -1,3 +1,6 @@
+vel_y = layer_get_vspeed("Background");
+vspeed = vel_y;
+
 // Troca a imagem de acordo com a ima_atual
 if (ima_atual == 0) // Batata frita
 {

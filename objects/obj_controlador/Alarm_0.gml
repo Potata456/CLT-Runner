@@ -53,4 +53,5 @@ else // Spawn dos coletáveis
 	}
 }
 
+// Reinicia o alarme
 alarm[0] = tempo_spawn;
