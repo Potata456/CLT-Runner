@@ -1,21 +1,21 @@
-// Variáveis de controle da posição do spawn dos obstáculos
+// Variáveis para controla a posição do spawn
 var _x = 32; // Já spawn por partão do lado esquerdo da tela
 var _y = -32;
 
-// Sorteio para saber se spawn sim ou não (3 e 4 - Não spawn nada) / (0, 1, 2 - Da spawn do obstáculo)
-// Ou sejá 60% de chance de spawnar e 40% de não spawnar
-var _sorteio_spawn_obs = irandom(4);
+// Sorteio para saber se spawn um obstaculo ou um coletável (3 e 4 - Spawn um coletável) / (0, 1, 2 - Spawn um obstáculo)
+// Ou sejá 60% de chance de spawnar um obstáculo e 40% de spanar um coletável
+var _sorteio_spawn = irandom(4);
 
-// Deu spawn!!!
-if (_sorteio_spawn_obs >= 0 && _sorteio_spawn_obs <= 2)
+// Sorteio para saber qual lado spawn esquerdo ou direito (False - esquerdo) / (true - Direito)
+var _sorteio_lado = choose(false, true);
+
+// Spawn dos dos obstáculos
+if (_sorteio_spawn >= 0 && _sorteio_spawn <= 2)
 {
 	// Cria uma instancia do objeto clt
 	var _obstaculo = instance_create_layer(_x, _y, "Obstaculos", obj_clt);
 	
-	// Sorteio para saber qual lado spawn esquerdo ou direito (False - esquerdo) / (true - Direito)
-	var _sorteio_lado_obs = choose(false, true);
-	
-	if (_sorteio_lado_obs) // Lado direito
+	if (_sorteio_lado) // Lado direito
 	{
 		_obstaculo.x = 148;
 		_obstaculo.image_yscale = -1.9;
@@ -28,10 +28,29 @@ if (_sorteio_spawn_obs >= 0 && _sorteio_spawn_obs <= 2)
 		_obstaculo.image_angle = 0;
 	}
 }
-else // Falhou o spawn
+else // Spawn dos coletáveis
 {
-	// Mensagem de debug
-	//show_message("Não foi .__.");
+	// Cria uma instancia do objeto coletável
+	var _coletavel = instance_create_layer(_x, _y, "Coletaveis", obj_coletavel);
+	
+	// Sorteia qual vai ser o coletável da fez
+	var _sort_col = irandom(3);
+	
+	// Avisa qual imagem o objeto vai ter para alterar seus pontos no proprio objeto
+	_coletavel.ima_atual = _sort_col;
+	
+	if (_sorteio_lado) // Lado direito
+	{
+		_coletavel.x = 148;
+		_coletavel.image_yscale = -1.9;
+		_coletavel.image_angle = 180;
+	}
+	else // Lado esquerdo
+	{
+		_coletavel.x = 32;
+		_coletavel.image_yscale = 1.9;
+		_coletavel.image_angle = 0;
+	}
 }
 
-alarm[0] = tempo_spawn_obs;
+alarm[0] = tempo_spawn;
